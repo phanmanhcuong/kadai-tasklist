@@ -1,14 +1,26 @@
 @extends ('layouts/app')
 @section('content')
     <h1>タスク一覧</h1>
-    
+
     @if(count($tasks) > 0)
-        <ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>状態</th>
+                    <th>タスク</th>
+                </tr>
+            </thead>
+            
             @foreach ($tasks as $task)
-                <li>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!} : {{ $task->status }} > {{ $task->content }} </li>
+                <tr>
+                    <td>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!}</td>
+                    <td>{{ $task->status }} </td>
+                    <td>{{ $task->content }} </td>
+                </tr>
             @endforeach
-        </ul>
+        </table>
     @endif
+    {!! link_to_route('tasks.create', ' タスク更新登録', null, ['class' => 'btn btn-primary glyphicon glyphicon-plus']) !!}
     
-    {!! link_to_route('tasks.create', 'タスク更新登録') !!}
 @endsection
