@@ -19,12 +19,14 @@
                 <td> {{ $task->content }} </td>
             </tr>
         </table>
+        
+        {!! link_to_route('tasks.edit', ' このタスク編集', ['id' => $task->id], ['class' => 'btn btn-default glyphicon glyphicon-pencil']) !!}
+    
+        {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}  
+        
+            {!! Form::button('<i class="glyphicon glyphicon-trash"> 削除</i>', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
+        {!! Form::close() !!}
     </div>
     
-    {!! link_to_route('tasks.edit', ' このタスク編集', ['id' => $task->id], ['class' => 'btn btn-default glyphicon glyphicon-pencil']) !!}
     
-    {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}  
-    
-        {!! Form::button('<i class="glyphicon glyphicon-trash"> 削除</i>', ['class' => 'btn btn-danger', 'type' => 'submit']) !!}
-    {!! Form::close() !!}
 @endsection

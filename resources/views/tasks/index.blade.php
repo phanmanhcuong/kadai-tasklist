@@ -13,16 +13,19 @@
                     </tr>
                 </thead>
                 
-                @foreach ($tasks as $task)
-                    <tr>
-                        <td>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!}</td>
-                        <td>{{ $task->status }} </td>
-                        <td>{{ $task->content }} </td>
-                    </tr>
-                @endforeach
+                <tbody>
+                    @foreach ($tasks as $task)
+                        <tr>
+                            <td>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!}</td>
+                            <td>{{ $task->status }} </td>
+                            <td>{{ $task->content }} </td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
+            {!! link_to_route('tasks.create', ' タスク更新登録', null, ['class' => 'btn btn-primary glyphicon glyphicon-plus']) !!}
+    
         </div>
     @endif
-    {!! link_to_route('tasks.create', ' タスク更新登録', null, ['class' => 'btn btn-primary glyphicon glyphicon-plus']) !!}
     
 @endsection
