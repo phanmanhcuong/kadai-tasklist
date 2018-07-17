@@ -23,6 +23,7 @@
                     @endforeach
                 </tbody>
             </table>
+            
             {!! link_to_route('tasks.create', ' タスク更新登録', null, ['class' => 'btn btn-primary glyphicon glyphicon-plus']) !!}
     
         </div>
