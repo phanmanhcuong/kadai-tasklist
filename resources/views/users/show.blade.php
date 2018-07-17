@@ -31,12 +31,14 @@
                         {!! Form::label('content', 'Content') !!}
                         {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
                     </div>
-
-                    {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                    
+                    <div class="form-group">
+                        {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                    </div>
                 {!! Form::close() !!}
             @endif
             @if (count($tasks) > 0)
-                @include ('tasks.tasks', ['tasks' => $tasks]);
+                @include ('tasks.tasks', ['tasks' => $tasks])
             @endif
         </div>
     </div>
