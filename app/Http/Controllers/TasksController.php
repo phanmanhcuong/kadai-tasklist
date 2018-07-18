@@ -23,7 +23,7 @@ class TasksController extends Controller
             $data = ['user' => $user, 'tasks' => $tasks];
             $data += $this->counts($user);
             
-            return view('users.show', $data);
+            return view('tasks.index', $data);
         } else{
             return view('welcome'); 
         }
@@ -53,7 +53,7 @@ class TasksController extends Controller
        
         $request->user()->tasks()->create(['content' => $request->content, 'status' => $request->status,]);
         
-        return redirect()->back();
+        return redirect("/");
     }
 
     /**
@@ -115,6 +115,6 @@ class TasksController extends Controller
             $task->delete();
         }
         
-        return redirect()->back();
+        return redirect('/');
     }
 }

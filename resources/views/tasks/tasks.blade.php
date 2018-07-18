@@ -1,4 +1,4 @@
-<ul class="media-list">
+<ul class="media-list" style="margin-top:10px">
     @foreach ($tasks as $task)
         <?php $user = $task->user; ?>
         <li class="media">
